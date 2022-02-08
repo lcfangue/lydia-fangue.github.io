@@ -12,7 +12,19 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
-
+    //create a for loop that counts 1-100
+for (var i = 1; i < 101; i++) {
+    //create an if/else statement that will categorize our special numbers (multiples of 3,5,both)
+    if (i % 15 === 0) {
+        console.log("FizzBuzz");
+    } else if (i % 5 === 0) {
+        console.log("Buzz");
+    } else if (i % 3 === 0) {
+        console.log("Fizz");
+    } else {
+        console.log(i);
+    }
+} 
 
 
     // YOUR CODE GOES ABOVE HERE //
