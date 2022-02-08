@@ -14,18 +14,23 @@
  */
 function length(string) {
     // YOUR CODE BELOW HERE //
-    
+    //use the .length property to return a string's length
+
+    return string.length;
 
 
     // YOUR CODE ABOVE HERE //
 }
+
+
 
 /**
  * Given an input String, return a new String forced to lowercase.
  */
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
-
+    //use the .toLowerCase method to make string input all lowercase
+    return string.toLowerCase();
 
 
     // YOUR CODE ABOVE HERE //
@@ -36,7 +41,8 @@ function toLowerCase(string) {
  */
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
-
+    // use .toUpperCase() method to make a string input all uppercase
+    return string.toUpperCase();
 
 
     // YOUR CODE ABOVE HERE //
@@ -57,7 +63,11 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
+    //use .toLowerCase() to force lower case
+    //split the string into an array of strings using the .split() method
+    //join the array of strings back into one string using the .join() method
 
+   return string.split(" ").join("-").toLowerCase();
 
 
     // YOUR CODE ABOVE HERE //
@@ -77,8 +87,14 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
+    //force lowercase?
 
-    
+    var lowerString = string.toLowerCase();
+    if(lowerString[0] === char.toLowerCase()) {
+        return true;
+    } else {
+        return false;
+    }
 
     // YOUR CODE ABOVE HERE //
 }
@@ -97,6 +113,18 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
+    //force same case?
+
+    var lowerString = string.toLowerCase();
+    if (lowerString[lowerString.length - 1] === char.toLowerCase()) {
+        return true;
+    } else {
+        return false;
+    }
+
+   
+
+
 
 
 
@@ -110,7 +138,9 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    //use the + operator to concatenate two strings
+    var phrase = stringOne + stringTwo;
+    return phrase;
 
 
     // YOUR CODE ABOVE HERE //
@@ -129,6 +159,10 @@ function concat(stringOne, stringTwo) {
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
+    
+    //use the .join() method
+
+    return args.join('');
 
 
     // YOUR CODE ABOVE HERE //
@@ -145,7 +179,15 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    //create an if/else function
+    //use the .length method to determine the length of the arguments being passed through
+    //return the longer of the two strings
 
+if (stringOne.length > stringTwo.length) {
+    return stringOne;
+} else if (stringTwo.length > stringOne.length) {
+    return stringTwo;
+}
 
 
     // YOUR CODE ABOVE HERE //
@@ -162,7 +204,10 @@ function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
 
+    return (stringOne.length[0]).localeCompare(stringTwo.length[0]);
 
+
+ 
     // YOUR CODE ABOVE HERE //
 }
 
