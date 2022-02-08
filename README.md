@@ -1,7 +1,7 @@
 # lydia-fangue.github.io
 
-**How to Install New Projects** (every time you open gitpod)
-1) In your terminal, type => ~/.bashrc
+**How to Install New Projects** 
+1) In your terminal, type => code ~/.bashrc
 2) On line 4 of .bashrc file enter => export CHE_PROJECTS_ROOT=/workspace
 3) Close .bashrc
 4) Close terminal

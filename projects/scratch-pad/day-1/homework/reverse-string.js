@@ -22,12 +22,16 @@
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
     
+    //create an empty string that will hold the reversed string
     var myString = "";
-
+    //create a loop that will iterate through the input string
+    //needs to iterate through backwards(reversed)
     for (var i = input.length - 1; i >= 0; i--) {
+
+      //store the input using i in the empty string variable
       myString += input[i];
     }
-    
+    //return the previously empty string that now contains the reversed string from input
     return myString;
     
     // YOUR CODE GOES ABOVE HERE //
