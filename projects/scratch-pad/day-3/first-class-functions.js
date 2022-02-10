@@ -13,6 +13,14 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
+    return function(value) {
+        if (value > base) {
+            return true;
+        } else {
+            return false;
+        }
+    } 
+    
     
     
     
@@ -27,7 +35,13 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+    return function(value) {
+        if (value < base) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     
     
@@ -41,6 +55,17 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
+    return function(val) {
+
+    var lowVal = val.toLowerCase();
+    var lowStarts = startsWith.toLowerCase();
+        if (lowStarts === lowVal[0]) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     
     
     
@@ -55,7 +80,17 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
-    
+    return function(val) {
+
+    var lowVal = val.toLowerCase();
+    var lowEnds = endsWith.toLowerCase();
+        
+    if (lowEnds === lowVal[lowVal.length - 1]) {
+        return true;
+    } else {
+        return false;
+    }
+    }
     
     
     
@@ -71,8 +106,16 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
-    
+    //create empty array to store
+    var array = [];
+    return function(value) {
+
+    //loop backwards to modify? over the strings in the array
+    for (var i = 0; i < strings.length; i--); {
+        array.push(i);
+        return array[i];
+    }
+    } 
     
     
     // YOUR CODE ABOVE HERE //
@@ -89,8 +132,17 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
-    
+   return function(){
+    for (var i = 0; i <= strings.length; i++) {
+    if (strings[i] >= 0) {
+        return true;
+    } else {
+        return false;
+     }
+    }
+   }
+     
+
     
     
     // YOUR CODE ABOVE HERE //

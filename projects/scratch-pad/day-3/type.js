@@ -14,9 +14,9 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    if (Array.isArray) {
+    return Array.isArray(value);
+    }
     
     // YOUR CODE ABOVE HERE //
 }
@@ -74,10 +74,12 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+
+
+ if (Array.isArray(value)) {
+     return "array";
+ 
+ }
     // YOUR CODE ABOVE HERE //
 }
 
