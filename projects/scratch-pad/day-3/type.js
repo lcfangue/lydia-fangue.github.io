@@ -102,7 +102,7 @@ function typeOf(value) {
      return 'boolean';
  } else if (typeof value === 'function') {
      return 'function';
- } else if (typeof value === null) {
+ } else if (value === null) {
      return 'null';
  } else if (value instanceof Date === true) {
      return 'date';
