@@ -96,10 +96,20 @@ function typeOf(value) {
      return 'number';
  } else if (typeof value === 'string') {
      return 'string';
- } else if (typeof value === 'undefined') {
+ } else if (typeof value === undefined) {
      return 'undefined';
- } else if (typeof value === )
+ } else if (typeof value === 'boolean') {
+     return 'boolean';
+ } else if (typeof value === 'function') {
+     return 'function';
+ } else if (typeof value === null) {
+     return 'null';
+ } else if (value instanceof Date === true) {
+     return 'date';
+ } else {
+     return 'object';
  }
+ 
  
     // YOUR CODE ABOVE HERE //
 }
