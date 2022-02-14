@@ -104,19 +104,14 @@ function makeContactList() {
                 var fullName = contacts[i].nameFirst + " " + contacts[i].nameLast;
 
                 //push full names to empty array
-                    names.push(fullName);
-
-                //create if else statement to single out last fullName in array
-                if (i === contacts.length - 1) {
-                    return names.length - 1;
-                } else {
-                    return names.join("\n");
+                    names.push(fullName);        
             }
+            return names.join("\n");
         }
 
     }
 }
-}
+
 
 
 /**
