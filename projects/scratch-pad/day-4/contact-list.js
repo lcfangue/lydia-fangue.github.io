@@ -108,13 +108,14 @@ function makeContactList() {
 
                 //create if else statement to single out last fullName in array
                 if (i === contacts.length - 1) {
-                    console.log(names.length - 1);
+                    return names.length - 1;
                 } else {
-                    console.log(names.join("\n"));
+                    return names.join("\n");
             }
         }
 
     }
+}
 }
 
 
@@ -132,7 +133,7 @@ function makeContactList() {
 
 
 
-// YOUR CODE GOES ABOVE HERE //
+//YOUR CODE GOES ABOVE HERE //
 
 
 
