@@ -11,12 +11,12 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-    var array = [];
-    for(var key in object){
-        if (object.hasOwnProperty(key)){
-            array.push(key);
-        }
-    }
+
+    var keyStore = Object.keys(object);
+
+    return keyStore.join(" ");
+
+
 
 }
 
@@ -26,6 +26,12 @@ function keysToString(object) {
 
 function valuesToString(object) {
     
+    var valueStore = [];
+    valueStore.push(Object.values(object));
+
+    return valueStore.join(" ");
+
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -33,6 +39,11 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
+    if (Array.isArray(collection)) {
+        return "array";
+    } else if (typeof collection === "object") {
+        return "object";
+    }
     
 }
 
@@ -41,7 +52,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -49,6 +60,7 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
+    return string.toUpperCase();
     
 }
 
