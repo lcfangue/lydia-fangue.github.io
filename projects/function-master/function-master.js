@@ -2,8 +2,6 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-const { remove } = require("lodash");
-
 function objectValues(object) {
     return Object.values(object);
 } 
@@ -28,10 +26,12 @@ function keysToString(object) {
 
 function valuesToString(object) {
     
-    var valueStore = [];
-    valueStore.push(Object.values(object));
+   var myArr = Object.values(object);
 
-    return valueStore.join(" ");
+   return myArr.join(" ");
+
+   
+   
 
 
 }
@@ -153,8 +153,8 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-    for (var i = 0; i < object.friends.length; i++) {
-          if (object.friends[i] === name) {
+    for (var i = 0; i < object.length; i++) {
+          if (object[i] === name) {
         return true;
       }
      } return false;
@@ -168,9 +168,12 @@ function isFriend(name, object) {
 
 function nonFriends(name, array) {
     for (var i = 0; i < array.length; i++) {
-        
-    }
+        if (name.Includes(name)) {
+        return name;
+        }
+    } 
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
@@ -200,7 +203,7 @@ function removeProperties(object, array) {
         if (array[i] === object.key) {
             delete object.key;
         }
-   } return object;
+   } 
     
 }
 
@@ -209,7 +212,8 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    var newArr = [...new Set(array)];
+    return newArr;
 }
 
 //////////////////////////////////////////////////////////////////////
