@@ -4,9 +4,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 function triangles(size) {
-  for (var triangle = "#"; triangle.length < size; triangle += "#") {
-    console.log(triangle);
-  }
+  for (var triangle = "#"; triangle.length <= size; triangle += "#") 
+  console.log(triangle);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

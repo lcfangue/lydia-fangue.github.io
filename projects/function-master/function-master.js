@@ -2,6 +2,8 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+const { remove } = require("lodash");
+
 function objectValues(object) {
     return Object.values(object);
 } 
@@ -60,39 +62,78 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    return string.toUpperCase();
-    
-}
+    var lowerStr = string.toLowerCase().split(" ");
+
+    for (var i = 0; i < lowerStr.length; i++) {
+        lowerStr[i] = lowerStr[i].charAt(0).toUpperCase() + lowerStr[i].substring(1);
+        
+    }
+    return lowerStr.join(" ");
+
+};    
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+    
+    var myName = object.name;
+    myName = myName.charAt(0).toUpperCase() + myName.slice(1);
+    
+    
+    return "Welcome " + myName + "!";
+    
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+//profileInfo() : Should take an object with a name an a species and return '<Name> is a <Species>'
 
 function profileInfo(object) {
+    var myName = object.name;
+        myName = myName.charAt(0).toUpperCase() + myName.slice(1);
+
+    var mySpecies = object.species;
+        mySpecies = mySpecies.charAt(0).toUpperCase() + mySpecies.slice(1);
+
+    return myName + " is a " + mySpecies;
+
 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+//Should take an object, if this object has a noises array return them 
+//as a string separated by a space, if there are no noises return 'there are no noises'"
 
 function maybeNoises(object) {
-
+    
+    if (object && object.noises) { 
+        if (Array.isArray(object.noises)) { 
+            if (object.noises.length > 0) { 
+                return object.noises.join(' ');
+            }
+        }
+    }
+    return 'there are no noises';
 }
+
+
+ 
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
+    if (string.includes(word)) {
+        return true;
+    } else {
+        return false;
+    }
 
 }
 
@@ -101,7 +142,10 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    if (object.hasOwnProperty('friends')) {
+        object.friends.push(name)
+    }
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -109,31 +153,55 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
+    for (var i = 0; i < object.friends.length; i++) {
+          if (object.friends[i] === name) {
+        return true;
+      }
+     } return false;
+ } 
+ 
 
-}
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+    for (var i = 0; i < array.length; i++) {
+        
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//Should take an object, a key and a value. Should update the property 
+//<key> on <object> with new <value>. If <key> does not exist on <object> create it."
 
 function updateObject(object, key, value) {
-
+   if (object.hasOwnProperty(key)) { 
+        object[key] = value;
+        return object;
+   } else {
+        object[key] = value;
+        return object;     
+    
+   }
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//Should take an object and an array of strings. Should remove any 
+//properties on <object> that are listed in <array>"
 
 function removeProperties(object, array) {
-
+   for (var i = 0; i < array.length; i++) {
+        if (array[i] === object.key) {
+            delete object.key;
+        }
+   } return object;
+    
 }
 
 //////////////////////////////////////////////////////////////////////
