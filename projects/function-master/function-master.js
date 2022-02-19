@@ -15,25 +15,19 @@ function keysToString(object) {
     var keyStore = Object.keys(object);
 
     return keyStore.join(" ");
-
-
-
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 3 - Values to String /////////////////////////////////////
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//Should take an object and return all its string values in a string each separated with a space
 
 function valuesToString(object) {
-    
-   var myArr = Object.values(object);
-
-   return myArr.join(" ");
-
-   
-   
-
-
+    var stringArr = [];
+    if (typeof object.key === "string") {
+        stringArr.push(object.key);
+    }
+        return stringArr.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -150,11 +144,14 @@ function addFriend (name, object) {
 
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//Should take a name and an object and return true if <name> is a friend of <object> and false otherwise
 
 function isFriend(name, object) {
-    for (var i = 0; i < object.length; i++) {
-          if (object[i] === name) {
+    var newArr = [];
+    newArr.push(object.friends);
+    for (var i = 0; i < newArr.length; i++) {
+          if (newArr[i] === name) {
         return true;
       }
      } return false;
