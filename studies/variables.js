@@ -23,7 +23,6 @@ defined.
 */
 
 var myLunch;
-
 console.log(myLunch); // prints => undefined
 
 // 2. initialization //
@@ -31,19 +30,41 @@ console.log(myLunch); // prints => undefined
 we've declared. This data can be accessed later on in our code as needed.
 */
 
-myLunch = "Roast beef sandwich";
-
+myLunch = 'Roast beef sandwich';
 console.log(myLunch); // prints => Roast beef sandwich
 
 // 3. reassignment //
 /* Hate roast beef? We can change that. But seriously, we can reassign a variable
-(as long as we are using the var keyword) to a different piece of data.
+(as long as we are using the var or let keyword) to a different piece of data.
 */
 
-myLunch = "One boiled egg and a glass of hot Chardonnay";
-
+myLunch = 'One boiled egg and a glass of hot Chardonnay';
 console.log(myLunch); // prints => One boiled egg and a glass of hot Chardonnay
 
 // 4. var, let, and const //
-/* 
+/* There are three different keywords with which to declare variables: var, let,
+and const. Const cannot be reassigned like var or let. Let can be reassigned, but 
+it cannot be redeclared like var. Var can exist in the globalscope of your program 
+(or function scope, if it is declared in a function), while let and const are 
+function-scoped or block-scoped only.
+*/
+
+let myGame = 'Horizon Zero Dawn';
+let myGame = 'Stardew Valley';
+console.log(myGame); // prints => SyntaxError: Identifier 'myGame' has already been declared
+
+let someBro = 'Chet Hanks';
+someBro = 'Justin Beaver';
+console.log(someBro); // prints => Justin Beaver
+
+const cheeseEater = 'me';
+cheeseEater = 'someone else';
+console.log(cheeseEater); // prints => TypeError: Assignment to constant variable.
+
+// 5. hoisting //
+/* Hoisting is what allows you to declare a function or variable at the end of your code,
+and still be able to use it at any point before that. While compiling your code, the browser
+stores the memory of your function, making it accessible at any point in your program. Not
+everything is hoisted, though. Arrow functions and function expressions are not hoisted.
+Variables created with the var keyword are hoisted, but their values are not. 
 */
