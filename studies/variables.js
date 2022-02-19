@@ -62,9 +62,33 @@ cheeseEater = 'someone else';
 console.log(cheeseEater); // prints => TypeError: Assignment to constant variable.
 
 // 5. hoisting //
-/* Hoisting is what allows you to declare a function or variable at the end of your code,
+/* Hoisting is what allows you to declare a function at the end of your code,
 and still be able to use it at any point before that. While compiling your code, the browser
 stores the memory of your function, making it accessible at any point in your program. Not
 everything is hoisted, though. Arrow functions and function expressions are not hoisted.
-Variables created with the var keyword are hoisted, but their values are not. 
+Variables created with the var keyword are hoisted, but their values are not. While variables 
+created with let or const are technically hoisted to the top, the automatic assignment of
+"undefined" after declaration is NOT hoisted.
 */
+
+console.log(bestCaptain); // prints => undefined
+var bestCaptain = 'Janeway';
+console.log(bestCaptain); // prints => Janeway
+
+console.log(bestCaptain); // prints => ReferenceError: Cannot access 'bestCaptain' before initialization
+let bestCaptain = 'Sisko';
+
+console.log(myBeverage('lukewarm sink water')); // prints => I drink lukewarm sink water
+function myBeverage(drink) {
+    return 'I drink ' + drink; 
+}
+
+console.log(snackReaction('pretzels', 'thirsty')); // prints => TypeError: snackReaction is not a function
+var snackReaction = function(food, feeling) {
+    return 'These ' + food + ' are making me ' + feeling + '!';
+}
+
+var snackReaction = function(food, feeling) {
+    return 'These ' + food + ' are making me ' + feeling + '!';
+}
+console.log(snackReaction('pretzels', 'thirsty')); // prints => These pretzels are making me thirsty!
