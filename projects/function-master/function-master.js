@@ -145,31 +145,41 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
-//Should take a name and an object and return true if <name> is a friend of <object> and false otherwise
-
+//Should take a name and an object and return true if <name> is a friend of
+// <object> and false otherwise
+   
 function isFriend(name, object) {
-    var newArr = [];
-    newArr.push(object.friends);
-    for (var i = 0; i < newArr.length; i++) {
-          if (newArr[i] === name) {
+  if (Array.isArray(object.friends)) { 
+    for (var i = 0; i < object.friends.length; i++) {
+          
+              if (object.friends[i] === name) {
         return true;
       }
-     } return false;
- } 
- 
-
+     } 
+ }
+ return false;
+}
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//Should take a name and a list of people, and return a list of 
+//all the names that <name> is not friends with"
 
 function nonFriends(name, array) {
+    //create empty array to store nonfriends
+    var nonArr = [];
+    //loop through array
     for (var i = 0; i < array.length; i++) {
-        if (name.Includes(name)) {
-        return name;
+        //if statement to find out if name is included in list
+        if (!array[i].friends.includes(array[i].name)) {
+            //push nonfriends to array? how do you know they aint friends?
+            nonArr.push(array[i].friends);
         }
-    } 
-}
+    }
+    return nonArr;
+    }
+
 
 
 //////////////////////////////////////////////////////////////////////
@@ -196,13 +206,14 @@ function updateObject(object, key, value) {
 //properties on <object> that are listed in <array>"
 
 function removeProperties(object, array) {
-   for (var i = 0; i < array.length; i++) {
-        if (array[i] === object.key) {
-            delete object.key;
-        }
+    for (var key in object) {
+       if (array.includes(key)) {
+         delete object[key]; 
+       } 
+     }
    } 
     
-}
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
