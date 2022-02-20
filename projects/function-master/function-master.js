@@ -173,6 +173,7 @@ function nonFriends(name, array) {
     for (var i = 0; i < array.length; i++) {
         //if statement to find out if name is included in list
         if (!array[i].friends.includes(array[i].name)) {
+            
             //push nonfriends to array? how do you know they aint friends?
             nonArr.push(array[i].friends);
         }
