@@ -44,7 +44,7 @@ console.log(myLunch); // prints => One boiled egg and a glass of hot Chardonnay
 // 4. var, let, and const //
 /* There are three different keywords with which to declare variables: var, let,
 and const. Const cannot be reassigned like var or let. Let can be reassigned, but 
-it cannot be redeclared like var. Var can exist in the globalscope of your program 
+it cannot be redeclared like var. Var can exist in the global scope of your program 
 (or function scope, if it is declared in a function), while let and const are 
 function-scoped or block-scoped only.
 */
