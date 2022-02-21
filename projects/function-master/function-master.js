@@ -23,12 +23,13 @@ function keysToString(object) {
 //Should take an object and return all its string values in a string each separated with a space
 
 function valuesToString(object) {
-    var stringArr = [];
-    if (typeof object.key === "string") {
-        stringArr.push(object.key);
-    }
-        return stringArr.join(" ");
-}
+    var arr = [];
+    for (var key in object) {
+        if (typeof object[key] === 'string') {
+            arr.push(object[key]);
+        }
+    } return arr.join(" ");
+};
 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
@@ -171,12 +172,14 @@ function nonFriends(name, array) {
     var nonArr = [];
     //loop through array
     for (var i = 0; i < array.length; i++) {
+        if (array[i].name !== name) {
         //if statement to find out if name is included in list
-        if (!array[i].friends.includes(array[i].name)) {
+            if (!array[i].friends.includes(name)) {
             
             //push nonfriends to array? how do you know they aint friends?
-            nonArr.push(array[i].friends);
+            nonArr.push(array[i].name);
         }
+     }
     }
     return nonArr;
     }
