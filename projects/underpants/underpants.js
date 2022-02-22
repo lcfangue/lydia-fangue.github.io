@@ -219,19 +219,23 @@ _.each = function(collection, action) {
 _.unique = function(array) {
     //create new array to store result
     var newArr = [];
+    var index = [];
     
     //loop through array
     for (var i = 0; i < array.length; i++) {
-    _.indexOf(array, array[i]) {
-        if(array.includes(array[i]))
-        newArr.push(array);
-    }
+        index.push(_.indexOf(array, array[i])) 
     
-}   return newArr;
-}
+        if(index.includes(i)) {
+             newArr.push(array[i]);
+        }
+     
+    }
+     return newArr;
+}   
+
     
 
-// [1, 3, 3, 7]
+// [1, 1, 3, 7]
 
 /** _.filter
 * Arguments:
