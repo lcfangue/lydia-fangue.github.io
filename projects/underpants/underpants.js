@@ -217,11 +217,21 @@ _.each = function(collection, action) {
 */
 
 _.unique = function(array) {
-
+    //create new array to store result
+    var newArr = [];
     
+    //loop through array
+    for (var i = 0; i < array.length; i++) {
+    _.indexOf(array, array[i]) {
+        if(array.includes(array[i]))
+        newArr.push(array);
+    }
     
+}   return newArr;
 }
+    
 
+// [1, 3, 3, 7]
 
 /** _.filter
 * Arguments:
@@ -240,11 +250,23 @@ _.unique = function(array) {
 */
 
 _.filter = function(array, action) {
+    var newArr = [];
+    var result = false;
+    for (var i = 0; i < array.length; i++) {
+     if (action(array[i], i, array) === true);
+        
+             newArr.push(array[i]);
+             
+         } 
+     }  return newArr;
+      
+    
+     }    
   
     
     
 
-}
+
 
 /** _.reject
 * Arguments:
@@ -258,6 +280,19 @@ _.filter = function(array, action) {
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+_.reject = function(array, action) {
+    var result = true;
+    var newArr = [];
+    for (var i = 0; i < array.length; i++) {
+        action(array[i], i, array) {
+            if (result === false) {
+                newArr.push(array[i]);
+            }
+        }
+    }
+    return newArr;
+}
 
 
 /** _.partition
@@ -278,6 +313,18 @@ _.filter = function(array, action) {
 *   }); -> [[2,4],[1,3,5]]
 }
 */
+
+_.partition = function(array, action) {
+    var newArr = [];
+    var truthyArr = [];
+    var falseyArr = [];
+    var result = false;
+    for (var i = 0; i < array.length; i++) {
+        action(array[i], key, array) {
+            if ()
+        }
+    }
+}
 
 
 /** _.map
