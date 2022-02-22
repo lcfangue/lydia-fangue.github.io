@@ -87,9 +87,9 @@ _.first = function(array, number) {
     }
     if (number > array.length) {
         return array;
-    } 
-       return array.slice(0, 1); 
-    
+    }
+    var newArr = array.slice(0, array.length - 1);
+    return newArr;
     
 }
 
@@ -125,7 +125,8 @@ _.last = function(array, number) {
     if (number > array.length) {
         return array;
     }
-    return array.slice();
+    var newArr = array.slice(array.length);
+    return array.slice(1, array.length);
 }
 
 
@@ -192,7 +193,17 @@ _.contains = function(array, value) {
 *      -> should log "a" "b" "c" to the console
 */
 
-
+_.each = function(collection, action) {
+    if(Array.isArray(collection)) {
+        for(var i = 0; i < collection.length; i++) {
+            action(collection[i], i, collection);
+        }
+    } else {
+        for (var key in collection) {
+            action(collection[key], key, collection);
+        }
+    }
+}
 
 
 /** _.unique
@@ -204,6 +215,12 @@ _.contains = function(array, value) {
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
+
+_.unique = function(array) {
+
+    
+    
+}
 
 
 /** _.filter
@@ -222,6 +239,12 @@ _.contains = function(array, value) {
 *   use _.each in your implementation
 */
 
+_.filter = function(array, action) {
+  
+    
+    
+
+}
 
 /** _.reject
 * Arguments:
