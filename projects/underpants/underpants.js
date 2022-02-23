@@ -353,6 +353,25 @@ _.partition = function(array, action) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function(collection, action) {
+    let arrSave = [];
+    let objSave = [];
+    if (Array.isArray(collection)) {
+        for (let i = 0; i < collection.length; i) {
+            arrSave = action(collection[i], i, collection);
+        }
+    } else {
+        for (let key in collection) {
+            objSave = action(collection[key[i]], collection[i][key], collection);
+
+            
+        }
+    }
+    return [objSave, arrSave];
+    }
+    
+
+
 
 /** _.pluck
 * Arguments:
