@@ -257,15 +257,15 @@ _.filter = function(array, action) {
     var newArr = [];
     var result = false;
     for (var i = 0; i < array.length; i++) {
-     if (action(array[i], i, array) === true);
+     if (action(array[i], i, array)) {
         
              newArr.push(array[i]);
-             
-         } 
-     }  return newArr;
+     }
+         } return newArr;
+     }  
       
     
-     }    
+      
   
     
     
@@ -285,18 +285,18 @@ _.filter = function(array, action) {
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
+
 _.reject = function(array, action) {
-    var result = true;
     var newArr = [];
-    for (var i = 0; i < array.length; i++) {
-        action(array[i], i, array) {
-            if (result === false) {
+    for (var i = 0; i < array.length; i++) { 
+        if (!action(array[i], i, array))  {
+           
                 newArr.push(array[i]);
             }
         }
-    }
     return newArr;
-}
+    }
+
 
 
 /** _.partition
@@ -319,15 +319,21 @@ _.reject = function(array, action) {
 */
 
 _.partition = function(array, action) {
-    var newArr = [];
+   
     var truthyArr = [];
     var falseyArr = [];
-    var result = false;
+    
     for (var i = 0; i < array.length; i++) {
-        action(array[i], key, array) {
-            if ()
+       if (action(array[i], i, array) === true) {
+            truthyArr.push(array[i]);
         }
+        else {
+            falseyArr.push(array[i]);
+        }
+            
+    
     }
+    return [truthyArr, falseyArr];
 }
 
 
@@ -380,6 +386,8 @@ _.partition = function(array, action) {
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
+
+
 
 
 /** _.some
