@@ -354,20 +354,17 @@ _.partition = function(array, action) {
 */
 
 _.map = function(collection, action) {
-    let arrSave = [];
-    let objSave = [];
+    let array = [];
     if (Array.isArray(collection)) {
-        for (let i = 0; i < collection.length; i) {
-            arrSave = action(collection[i], i, collection);
+        for (let i = 0; i < collection.length; i++) {
+             array.push(action(collection[i], i, collection));
         }
     } else {
         for (let key in collection) {
-            objSave = action(collection[key[i]], collection[i][key], collection);
-
-            
+            array.push(action(collection[key], key, collection));      
         }
     }
-    return [objSave, arrSave];
+    return array;
     }
     
 
@@ -383,6 +380,7 @@ _.map = function(collection, action) {
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
 
 
 /** _.every
@@ -406,6 +404,42 @@ _.map = function(collection, action) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function(collection, action) {
+    //is a function being passed
+    if (!action) {
+        if (Array.isArray(collection)) {
+            for (let i = 0; i < collection.length; i++) {
+                if (!collection[i]) {
+                    return false;
+                }
+
+            }
+        } else {
+            for (let key in collection) {
+                if (!collection[key]) {
+                    return false;
+                }
+            }
+
+        }
+    } else {
+        if (Array.isArray(collection)) {
+            for (let i = 0; i < collection.length; i++) {
+                if (!action(collection[i], i, collection)) {
+                    return false;
+                }
+            }
+        } else {
+            for (let key in collection) {
+                if (!action(collection[key], key, collection)) {
+                    return false;
+                }
+            }
+        }
+        
+    }
+    return true;
+}
 
 
 
@@ -429,6 +463,10 @@ _.map = function(collection, action) {
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+
+._some = function(collection, action) {
+
+}
 
 
 /** _.reduce
