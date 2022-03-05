@@ -488,13 +488,13 @@ _.some = function(collection, action) {
     } else {
         if (Array.isArray(collection)) {
             for (let i = 0; i < collection.length; i++) {
-                if (action(collection[i])) {
+                if (action(collection[i], i, collection)) {
                     return true;
                 }
             }
         } else {
             for (let key in collection) {
-                if (action(collection[key])) {
+                if (action(collection[key], key, collection)) {
                     return true;
                 }
             }
@@ -556,8 +556,9 @@ _.reduce = function(array, action, seed) {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
-_.extend = function(object1, object2) {
-    for (let key in object2) {
+_.extend = function(objectOne, objectTwo) {
+    for (let key in objectTwo) {
+        objectOne.objectTwo[key];
 
     }
 };
