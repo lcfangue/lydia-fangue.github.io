@@ -1,4 +1,4 @@
-// This makes the arguments variable behave the way we want it to and a few
+// This makes the objects variable behave the way we want it to and a few
 // other things. For more info:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
@@ -12,7 +12,7 @@ var _ = {};
 */
 
 /** _.identity
-* Arguments:
+* objects:
 *   1) Any value
 * Objectives:
 *   1) Returns <value> unchanged
@@ -27,7 +27,7 @@ _.identity = function(value) {
 
 
 /** _.typeOf
-* Arguments:
+* objects:
 *   1) Any value
 * Objectives:
 *   1) Return the type of <value> as a string
@@ -58,7 +58,7 @@ _.typeOf = function(value) {
 
 
 /** _.first
-* Arguments:
+* objects:
 *   1) An array
 *   2) A number
 * Objectives:
@@ -95,7 +95,7 @@ _.first = function(array, number) {
 
 
 /** _.last
-* Arguments:
+* objects:
 *   1) An array
 *   2) A number
 * Objectives:
@@ -131,7 +131,7 @@ _.last = function(array, number) {
 
 
 /** _.indexOf
-* Arguments:
+* objects:
 *   1) An array
 *   2) A value
 * Objectives:
@@ -156,7 +156,7 @@ _.indexOf = function(array, value) {
 
 
 /** _.contains
-* Arguments:
+* objects:
 *   1) An array
 *   2) A value
 * Objectives:
@@ -178,15 +178,15 @@ _.contains = function(array, value) {
 
 
 /** _.each
-* Arguments:
+* objects:
 *   1) A collection
 *   2) A function
 * Objectives:
 *   1) if <collection> is an array, call <function> once for each element
-*      with the arguments:
+*      with the objects:
 *         the element, it's index, <collection>
 *   2) if <collection> is an object, call <function> once for each property
-*      with the arguments:
+*      with the objects:
 *         the property's value, it's key, <collection>
 * Examples:
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
@@ -207,7 +207,7 @@ _.each = function(collection, action) {
 
 
 /** _.unique
-* Arguments:
+* objects:
 *   1) An array
 * Objectives:
 *   1) Return a new array of all elements from <array> with duplicates removed
@@ -238,11 +238,11 @@ _.unique = function(array) {
 // [1, 1, 3, 7]
 
 /** _.filter
-* Arguments:
+* objects:
 *   1) An array
 *   2) A function
 * Objectives:
-*   1) call <function> for each element in <array> passing the arguments:
+*   1) call <function> for each element in <array> passing the objects:
 *      the element, it's index, <array>
 *   2) return a new array of elements for which calling <function> returned true
 * Edge Cases:
@@ -273,11 +273,11 @@ _.filter = function(array, action) {
 
 
 /** _.reject
-* Arguments:
+* objects:
 *   1) An array
 *   2) A function
 * Objectives:
-*   1) call <function> for each element in <array> passing the arguments:
+*   1) call <function> for each element in <array> passing the objects:
 *      the element, it's index, <array>
 *   2) return a new array of elements for which calling <function> returned false
 *   3) This is the logical inverse if _.filter()
@@ -300,11 +300,11 @@ _.reject = function(array, action) {
 
 
 /** _.partition
-* Arguments:
+* objects:
 *   1) An array
 *   2) A function
 * Objectives:
-*   1) Call <function> for each element in <array> passing it the arguments:
+*   1) Call <function> for each element in <array> passing it the objects:
 *       element, key, <array>
 *   2) Return an array that is made up of 2 sub arrays:
 *       0) An array that contains all the values for which <function> returned something truthy
@@ -338,11 +338,11 @@ _.partition = function(array, action) {
 
 
 /** _.map
-* Arguments:
+* objects:
 *   1) A collection
 *   2) a function
 * Objectives:
-*   1) call <function> for each element in <collection> passing the arguments:
+*   1) call <function> for each element in <collection> passing the objects:
 *        if <collection> is an array:
 *            the element, it's index, <collection>
 *        if <collection> is an object:
@@ -371,7 +371,7 @@ _.map = function(collection, action) {
 
 
 /** _.pluck
-* Arguments:
+* objects:
 *   1) An array of objects
 *   2) A property
 * Objectives:
@@ -390,7 +390,7 @@ _.pluck = function(array, property) {
 };
 
 /** _.every
-* Arguments:
+* objects:
 *   1) A collection
 *   2) A function
 * Objectives:
@@ -449,7 +449,7 @@ _.every = function(collection, action) {
 
 
 /** _.some
-* Arguments:
+* objects:
 *   1) A collection
 *   2) A function
 * Objectives:
@@ -504,12 +504,12 @@ return false;
 };
 
 /** _.reduce
-* Arguments:
+* objects:
 *   1) An array
 *   2) A function
 *   3) A seed
 * Objectives:
-*   1) Call <function> for every element in <collection> passing the arguments:
+*   1) Call <function> for every element in <collection> passing the objects:
 *         previous result, element, index
 *   2) Use the return value of <function> as the "previous result"
 *      for the next iteration
@@ -542,7 +542,7 @@ _.reduce = function(array, action, seed) {
 
 
 /** _.extend
-* Arguments:
+* objects:
 *   1) An Object
 *   2) An Object
 *   ...Possibly more objects
@@ -556,11 +556,11 @@ _.reduce = function(array, action, seed) {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
-_.extend = function(objectOne, objectTwo) {
-    for (let key in objectTwo) {
-        objectOne.objectTwo[key];
-
+_.extend = function() {
+    for (let i = 1; i < arguments.length; i++) {
+        arguments[0] = Object.assign(arguments[0], arguments[i]);
     }
+    return arguments[0];
 };
 
 //////////////////////////////////////////////////////////////////////
