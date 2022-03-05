@@ -382,17 +382,12 @@ _.map = function(collection, action) {
 */
 
 _.pluck = function(array, property) {
-    var newArr = [];
-    //loop through array
-    for (var i = 0; i < array.length; i++) {
-        //loop through object in array?
-       for (var property in array[i]) {
-           newArr.push(_.map(array[i][property]));
-
-       }
-    }
-    return newArr;
-}
+    
+    var plucked = _.map(array, function(value) {
+         return value[property];
+    })
+    return plucked;
+};
 
 /** _.every
 * Arguments:
@@ -476,6 +471,16 @@ _.every = function(collection, action) {
 */
 
 ._some = function(collection, action) {
+    if (!action) {
+        if (Array.isArray(collection)) {
+            for (var i = 0; i < collection.length; i++) {
+                if (!collection[i]) {
+                    return false;
+                }
+            }
+
+        }
+    }
 
 }
 
