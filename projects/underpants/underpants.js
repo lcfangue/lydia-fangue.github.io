@@ -473,33 +473,33 @@ _.some = function(collection, action) {
     if (!action) {
         if (Array.isArray(collection)) {
             for (let i = 0; i < collection.length; i++) {
-                if (!collection[i]) {
-                    return false;
+                if (collection[i]) {
+                    return true;
                 }
             }
 
         } else {
             for (let key in collection) {
-                if (!collection[key]) {
-                    return false;
+                if (collection[key]) {
+                    return true;
                 }
             }
         }
     } else {
         if (Array.isArray(collection)) {
-            for (let i = 0; i < collection.length; i++)
-            if (action(collection[i])) {
-                return true;
+            for (let i = 0; i < collection.length; i++) {
+                if (action(collection[i])) {
+                    return true;
+                }
             }
-        
-    } else {
-        for (let key in collection) {
-            if (action(collection[key])) {
-                return true;
+        } else {
+            for (let key in collection) {
+                if (action(collection[key])) {
+                    return true;
+                }
             }
-        }
+        } 
     } 
-} 
 return false;
 };
 
@@ -555,6 +555,12 @@ _.reduce = function(array, action, seed) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+_.extend = function(object1, object2) {
+    for (let key in object2) {
+
+    }
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
