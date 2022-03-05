@@ -23,7 +23,7 @@ var _ = {};
 
 _.identity = function(value) {
     return value;
-}
+};
 
 
 /** _.typeOf
@@ -54,7 +54,7 @@ _.typeOf = function(value) {
         return "null";
     }
     return typeof value;
-}
+};
 
 
 /** _.first
@@ -91,7 +91,7 @@ _.first = function(array, number) {
     var newArr = array.slice(0, array.length - 1);
     return newArr;
     
-}
+};
 
 
 /** _.last
@@ -127,7 +127,7 @@ _.last = function(array, number) {
     }
     var newArr = array.slice(array.length);
     return array.slice(1, array.length);
-}
+};
 
 
 /** _.indexOf
@@ -152,7 +152,7 @@ _.indexOf = function(array, value) {
             return i;
         }
     } return -1;
-}
+};
 
 
 /** _.contains
@@ -174,7 +174,7 @@ _.contains = function(array, value) {
     for (var i = 0; i < array.length; i++) {
         return array.includes(value) ? true : false;
     }
-}
+};
 
 
 /** _.each
@@ -203,7 +203,7 @@ _.each = function(collection, action) {
             action(collection[key], key, collection);
         }
     }
-}
+};
 
 
 /** _.unique
@@ -231,7 +231,7 @@ _.unique = function(array) {
      
     }
      return newArr;
-}   
+};   
 
     
 
@@ -262,7 +262,7 @@ _.filter = function(array, action) {
              newArr.push(array[i]);
      }
          } return newArr;
-     }  
+     };  
       
     
       
@@ -295,7 +295,7 @@ _.reject = function(array, action) {
             }
         }
     return newArr;
-    }
+    };
 
 
 
@@ -334,7 +334,7 @@ _.partition = function(array, action) {
     
     }
     return [truthyArr, falseyArr];
-}
+};
 
 
 /** _.map
@@ -365,7 +365,7 @@ _.map = function(collection, action) {
         }
     }
     return array;
-    }
+    };
     
 
 
@@ -410,6 +410,7 @@ _.pluck = function(array, property) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+
 _.every = function(collection, action) {
     //is a function being passed
     if (!action) {
@@ -418,7 +419,6 @@ _.every = function(collection, action) {
                 if (!collection[i]) {
                     return false;
                 }
-
             }
         } else {
             for (let key in collection) {
@@ -426,7 +426,6 @@ _.every = function(collection, action) {
                     return false;
                 }
             }
-
         }
     } else {
         if (Array.isArray(collection)) {
@@ -445,7 +444,7 @@ _.every = function(collection, action) {
         
     }
     return true;
-}
+};
 
 
 
@@ -470,20 +469,39 @@ _.every = function(collection, action) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
-._some = function(collection, action) {
+_.some = function(collection, action) {
     if (!action) {
         if (Array.isArray(collection)) {
-            for (var i = 0; i < collection.length; i++) {
+            for (let i = 0; i < collection.length; i++) {
                 if (!collection[i]) {
                     return false;
                 }
             }
 
+        } else {
+            for (let key in collection) {
+                if (!collection[key]) {
+                    return false;
+                }
+            }
         }
-    }
-
-}
-
+    } else {
+        if (Array.isArray(collection)) {
+            for (let i = 0; i < collection.length; i++)
+            if (action(collection[i])) {
+                return true;
+            }
+        
+    } else {
+        for (let key in collection) {
+            if (action(collection[key])) {
+                return true;
+            }
+        }
+    } 
+} 
+return false;
+};
 
 /** _.reduce
 * Arguments:
@@ -503,6 +521,24 @@ _.every = function(collection, action) {
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+
+_.reduce = function(array, action, seed) {
+    let accumulator;
+    if (seed !== undefined) {
+        accumulator = seed;
+        for (var i = 0; i < array.length; i++) {
+            accumulator = action(accumulator, array[i], i, array);
+        }
+
+        } else {
+            accumulator = array[0];
+            for (var i = 1; i < array.length; i++) {
+                accumulator = action(accumulator, array[i], i, array);
+            }
+        }
+        return accumulator;
+    };
+
 
 
 /** _.extend
