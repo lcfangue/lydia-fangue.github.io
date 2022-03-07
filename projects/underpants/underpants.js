@@ -529,15 +529,14 @@ _.reduce = function(array, action, seed) {
         for (var i = 0; i < array.length; i++) {
             accumulator = action(accumulator, array[i], i, array);
         }
-
-        } else {
-            accumulator = array[0];
-            for (var i = 1; i < array.length; i++) {
-                accumulator = action(accumulator, array[i], i, array);
+    } else {
+      accumulator = array[0];
+        for (var i = 1; i < array.length; i++) {
+            accumulator = action(accumulator, array[i], i, array);
             }
         }
-        return accumulator;
-    };
+    return accumulator;
+};
 
 
 
@@ -558,7 +557,7 @@ _.reduce = function(array, action, seed) {
 
 _.extend = function() {
     for (let i = 1; i < arguments.length; i++) {
-        arguments[0] = Object.assign(arguments[0], arguments[i]);
+        Object.assign(arguments[0], arguments[i]);
     }
     return arguments[0];
 };
