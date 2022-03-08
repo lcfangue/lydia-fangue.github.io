@@ -140,7 +140,7 @@ function addFriend (name, object) {
     if (object.hasOwnProperty('friends')) {
         object.friends.push(name)
     }
-    return object;
+    return object; 
 }
 
 //////////////////////////////////////////////////////////////////////

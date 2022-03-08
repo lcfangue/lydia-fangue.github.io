@@ -29,26 +29,57 @@ var maleCount = function(array) {
 };
 
 var femaleCount = function(array) {
-
+    var females = _.reduce(array, function(customer) {
+        return customer.gender === 'female';
+    });
+    return females.length;
 };
 
 var oldestCustomer = function(array) {
-
- };
+    let oldest = {};
+    let oldestAge = 0;
+  for (let i = 0; i < array.length; i++) {
+    let age = array[i].age;
+    if (age >= oldestAge) {
+       oldestAge = age;
+       oldest = array[i].name;
+    }
+  }
+  return oldest;
+};
 
 var youngestCustomer = function(array) {
+    
 
 };
 
 var averageBalance = function(array) {
-
+    let total = 0;
+    for (let i = 0; i < array.length; i++) {
+        total += array[i].balance;
+    }
+    let average = total / array.length;
+    return average;
 };
 
 var firstLetterCount = function(array, letter) {
-
+    var names = [];
+    let lowerLetter = letter.toLowerCase();
+    for (let i = 0; i < array.length; i++) {
+        let lowerName = array[i].name.toLowerCase();
+        if (lowerName[0] === lowerLetter) {
+            
+            names.push(lowerName);
+        }
+    }
+    return names.length;
 };
 
 var friendFirstLetterCount = function(array, customer, letter) {
+    var friends = [];
+    for (let i = 0; i < array.length; i++) {
+        
+    }
 
 };
 
