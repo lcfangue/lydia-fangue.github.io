@@ -1,18 +1,18 @@
 // Solve all of the following prompts using recursion.
 
-// 1. Calculate the factorial of a number.  The factorial of a non-negative integer n,
-// denoted by n!, is the product of all positive integers less than or equal to n.
+// 1. Calculate the factorial of a number.  The factorial of a non-negative integer x,
+// denoted by x!, is the product of all positive integers less than or equal to x.
 // Example:  5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5);  // 120
-var factorial = function(n) {
+var factorial = function(x) {
 //base
-if (n === 1 || n === 0) {
+if (x === 1 || x === 0) {
   return 1;
-} else if (n < 0) {
+} else if (x < 0) {
   return null;
 }
 //recursion
-return n * factorial(n - 1);
+return x * factorial(x - 1);
 };
 
 // 2. Compute the sum of an array of integers.
@@ -35,33 +35,48 @@ var arraySum = function(array) {
 };
 
 // 4. Check if a number is even.
-var isEven = function(n) {
-  if (n === 0) {
+var isEven = function(x) {
+  if (x === 0) {
     return true;
-  } else if (n === 1) {
+  } else if (x === 1) {
     return false;
-  } 
-
-    return n - checkEven(n - 2);
-
+  }
+  isEven(x - 2);
+  
 };
+
+
   
 
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
-var sumBelow = function(n) {
+var sumBelow = function(x) {
   //base
-
+  if (x === 0) {
+    return 0;
+  }
   //recursion
-
+   if (x > 0) {
+    return sumBelow(x - 1);
+   } else if (x < 0) {
+    return sumBelow(x + 1);
+   }
 };
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) {
-};
+var range = function(x, y){
+   var array = [];
+  if (x >= y - 1) {
+  return array;
+} else {
+  array.push(x + 1);
+}
+return range(x + 1, y);
+
+}
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
@@ -69,13 +84,14 @@ var range = function(x, y) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+
 };
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
-var powerOfTwo = function(n) {
+var powerOfTwo = function(x) {
 };
 
 // 9. Write a function that accepts a string a reverses it.
@@ -166,20 +182,20 @@ var countValuesInObj = function(obj, value) {
 var replaceKeysInObj = function(obj, key, newKey) {
 };
 
-// 24. Get the first n Fibonacci numbers.  In the Fibonacci Sequence, each subsequent
+// 24. Get the first x Fibonacci numbers.  In the Fibonacci Sequence, each subsequent
 // number is the sum of the previous two.
 // Example:  0, 1, 1, 2, 3, 5, 8, 13, 21, 34.....
 // fibonacci(5);  // [0, 1, 1, 2, 3, 5]
 // Note:  The 0 is not counted.
-var fibonacci = function(n) {
+var fibonacci = function(x) {
 };
 
-// 25. Return the Fibonacci number located at index n of the Fibonacci sequence.
+// 25. Return the Fibonacci number located at index x of the Fibonacci sequence.
 // [0,1,1,2,3,5,8,13,21]
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n) {
+var nthFibo = function(x) {
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
