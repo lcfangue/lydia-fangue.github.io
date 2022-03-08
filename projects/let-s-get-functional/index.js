@@ -77,9 +77,16 @@ var firstLetterCount = function(array, letter) {
 
 var friendFirstLetterCount = function(array, customer, letter) {
     var friends = [];
+    let lowerLetter = letter.toLowerCase();
     for (let i = 0; i < array.length; i++) {
-        
+        for (let k = 0; k < array[i].friends.length; k++) {
+            let lowerFriend = array[k].friends.name.toLowerCase();
+            if (lowerFriend[0] === lowerLetter) {
+                friends.push(lowerFriend);
+            }
+        }
     }
+    return friends.length;
 
 };
 
