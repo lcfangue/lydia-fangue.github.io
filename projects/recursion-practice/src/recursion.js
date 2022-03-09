@@ -41,7 +41,7 @@ var isEven = function(x) {
   } else if (x === 1) {
     return false;
   }
-  return isEven(x - 2);
+  return isEven(x - (x - 2));
   
 };
 
@@ -144,12 +144,24 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
+ 
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
+  if (x === 0 || y === 0) {
+    return 0;
+  } 
+  if (x === 1) {
+    return y;
+  }
+  if (y === 1) {
+    return x;
+  }
+  return x + multiply(x, y - 1);
+
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
@@ -171,6 +183,13 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  if (str1 === str2) {
+    return true;
+  } else {
+    compareStr(str1.substring(1), str2.substring(1))
+    return false;
+  }
+  
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
