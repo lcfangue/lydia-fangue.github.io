@@ -41,7 +41,7 @@ var isEven = function(x) {
   } else if (x === 1) {
     return false;
   }
-  isEven(x - 2);
+  return isEven(x - 2);
   
 };
 
@@ -59,24 +59,28 @@ var sumBelow = function(x) {
   }
   //recursion
    if (x > 0) {
-    return sumBelow(x - 1);
+    return x - 1 + sumBelow(x - 1);
    } else if (x < 0) {
-    return sumBelow(x + 1);
+    return x + 1 + sumBelow(x + 1);
    }
 };
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y){
-   var array = [];
-  if (x >= y - 1) {
-  return array;
-} else {
-  array.push(x + 1);
+var range = function(x, y, output=[]){
+  //if the difference between x and y is equal to 0 or 1
+  if (y - x === 0 || x - y === 0 || y - x === 1 || x - y === 1) {
+    return output;
+    //if x > y, return integers from x down to y
+} else if (x > y) {
+  output.push(x - 1);
+  return range(x - 1, y, output);
+} else if (y > x) {
+  output.push(x + 1);
+  return range(x + 1, y, output);
 }
-return range(x + 1, y);
 
-}
+};
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
@@ -84,6 +88,17 @@ return range(x + 1, y);
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  if (exp === 0) {
+    return 1;
+  } else if (exp === 1) {
+    return base;
+  }
+  if (exp > 0) {
+    return base * exponent(base, exp - 1);
+  }
+  if (exp < 0) {
+    return base * exponent(base, exp + 1);
+  }
 
 };
 
@@ -91,7 +106,14 @@ var exponent = function(base, exp) {
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
-var powerOfTwo = function(x) {
+var powerOfTwo = function(x) { 
+  if(x === 1){
+    return true;
+ };
+ if(x === 0){
+    return false;
+ }
+ return powerOfTwo(x / 2);
 };
 
 // 9. Write a function that accepts a string a reverses it.
