@@ -69,7 +69,7 @@ var sumBelow = function(x) {
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y, output=[]){
   //if the difference between x and y is equal to 0 or 1
-  if (y - x === 0 || x - y === 0 || y - x === 1 || x - y === 1) {
+  if (y === x || y - x === 1 || x - y === 1) {
     return output;
     //if x > y, return integers from x down to y
 } else if (x > y) {
@@ -118,10 +118,24 @@ var powerOfTwo = function(x) {
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
+  if (string === "") {
+    return "";
+  } else {
+    return string.charAt(string.length - 1) + reverse(string.substring(0, string.length - 1));
+  }
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  if (string.length < 2) {
+    return true;
+  } else {
+    string = string.replace(/\s/g, '')
+    if (string[0].toLowerCase() === string[string.length - 1].toLowerCase()) {
+      return palindrome(string.slice(1, -1));
+  }
+}
+  return false;
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
