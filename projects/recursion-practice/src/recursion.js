@@ -41,8 +41,12 @@ var isEven = function(x) {
   } else if (x === 1) {
     return false;
   }
-  return isEven(x - (x - 2));
-  
+  if (x > 0) {
+  return isEven(x - 2);
+  }
+  if (x < 0) {
+    return isEven(x + 2);
+  }
 };
 
 
@@ -194,12 +198,25 @@ var compareStr = function(str1, str2) {
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str){
+var createArray = function(str, output=[]){
+  if (str === "") {
+    return output;
+  } else {
+     output.push(str[0]);
+  }
+  return createArray(str.slice(1), output);
 };
 
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
+var reverseArr = function (array, output=[]) {
+  if (array.length === 0) {
+    return output;
+  }
+    var element = array.pop();
+    array.unshift(element);
+    return reverseArr(array[0], output);
 };
+
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
