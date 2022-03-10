@@ -47,5 +47,32 @@ console.log(canSeeTheEnd); // prints => false
 
 // 4. array //
 /* Arrays are not simple data types, but are actually a type of object. They allow you to 
-store an alterable collection of data under a single variable name.
+store an alterable collection of data under a single variable name. An array's elements can
+be accessed and altered with a wide variety of array methods.
+*/
+
+var mySalad = ['chicken', 'parmesan', 'lemon', 'cashews', 'spinach'];
+console.log(mySalad); // prints => ['chicken', 'parmesan', 'lemon', 'cashews', 'spinach']
+
+// 5. object //
+/* Objects are complex data types. They can store multiple properties called key-value pairs.
+Keys are usually strings, and can be set to equal the value of a string, a number, an object 
+or an array, and more. An object is useful when you need to store multiple properties in the same
+data container. You can access or alter the properties of an object using various methods.
+ */
+
+var myHouse = {
+    color: 'blue',
+    size: 'small',
+    shape: 'rectangle',
+    sides: 4,
+    neighborhood: 'Hollygrove'
+};
+console.log(myHouse); // prints => {
+/**                                 color: 'blue',
+                                    size: 'small',
+                                    shape: 'rectangle',
+                                    sides: 4,
+                                    neighborhood: 'Hollygrove'
+                                    }
 */
