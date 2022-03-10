@@ -101,7 +101,8 @@ var exponent = function(base, exp) {
     return base * exponent(base, exp - 1);
   }
   if (exp < 0) {
-    return base * exponent(base, exp + 1);
+    exp = exp * -1;
+    return 1 / (base * exponent(base, exp - 1));
   }
 
 };
@@ -238,8 +239,12 @@ var countOccurrence = function(array, value) {
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
-var rMap = function(array, callback) {
-
+var rMap = function(array, callback, output=[]) {
+  if (array.length === 0) {
+    return output;
+  }
+  output.push(callback(array[0]))
+  return rMap(array.slice(1), callback, output);
   
 };
 
