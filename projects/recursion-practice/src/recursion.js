@@ -165,9 +165,16 @@ var multiply = function(x, y) {
   if (y === 1) {
     return x;
   }
+  if (x > 0 && y > 0) {
   return x + multiply(x, y - 1);
-
+  }
+  if (x < 0) {
+  return x - multiply(x, y - 1);
+  
+  }
+  
 };
+
 
 // 13. Write a function that divides two numbers without using the / operator  or
 // JavaScript's Math object.
@@ -286,7 +293,20 @@ var nthFibo = function(x) {
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
-var capitalizeWords = function(input) {
+var capitalizeWords = function(array, i, output=[]) {
+  if (array.length === 0) {
+    return output;
+}
+
+ array.forEach(function(element, i, array) {
+   element = array[i].toUpperCase();
+  output.push(element);
+ });
+
+capitalizeWords(array, i + 1, output);
+  
+return output;
+
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
