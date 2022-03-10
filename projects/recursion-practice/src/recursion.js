@@ -212,9 +212,7 @@ var reverseArr = function (array, output=[]) {
   if (array.length === 0) {
     return output;
   }
-    var element = array.pop();
-    array.unshift(element);
-    return reverseArr(array[0], output);
+  return array.slice(array.length - 1).concat(reverseArr(array.slice(-array.length, -1), output));
 };
 
 
