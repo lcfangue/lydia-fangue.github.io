@@ -114,7 +114,8 @@ console.log(okaySure); // prints => null
 
 // 9. NaN //
 /* NaN stands for Not a Number. It is essentially a number type, that is not a legal number. NaN
-can be thrown to the console for a few different reasons, like if you try to perform math on a string.
+can be thrown to the console for a few different reasons, like if you try to perform math (other than +)
+on a string.
 */
 
 var garlic = "clove" / 2;
@@ -131,9 +132,42 @@ console.log(-Infinity * 3); // prints => -Infinity
 console.log(-Infinity * -1); // prints => Infinity
 
 // 11. Simple v. Complex Datatypes //
-/*
+/* Simple datatypes represent a singular piece of data, like an integer (number) or a string of 
+words (string). Complex datatypes store multiple pieces of data, like an object, an array, or a 
+function. Complex datatypes are comprised of multiple simple datatypes, and sometimes even 
+other complex datatypes.
 */
 
-// 12. By copy v. By reference //
-/*
+var string = "A string is a simple datatype";
+console.log(string); // prints => "A string is a simple datatype"
+
+var soIsNumber = 8;
+console.log(soIsNumber); // prints => 8
+
+var soIsBoolean = true;
+console.log(soIsBoolean); // prints => true
+
+var object = {
+    string: "Objects store multiple types of data",
+    number: 8,
+    boolean: true,
+    array: ['including', 'other', 'complex', 'types']
+  };
+  console.log(object); // prints => {
+/*                                  string: 'Objects store multiple types of data',
+                                    number: 8,
+                                    boolean: true,
+                                    array: [ 'including', 'other', 'complex', 'types' ]
+                                    }
 */
+
+// 12. Copy by value v. Copy by reference //
+/* When copying by value, the original data you are copying is not modified. When copying
+by reference, the original data is modified. When you copy by value, a copy of the variable
+is given, whereas when copying by reference, the actual variable is given. Additionally, 
+objects and arrays are copied by reference upon assignment, whereas primitive datatypes are 
+copied by value upon assignment.
+*/
+
+
+
