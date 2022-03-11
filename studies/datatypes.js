@@ -169,5 +169,27 @@ objects and arrays are copied by reference upon assignment, whereas primitive da
 copied by value upon assignment.
 */
 
+let boyfriend = {
+	name: "Kyle",
+	age: 29,
+	hairColor: "brown"
+};
 
+let newBf = boyfriend;
+newBf.name = "Kyle Lankton";
+
+console.log(newBf); // prints => { name: 'Kyle Lankton', age: 29, hairColor: 'brown' }
+console.log(boyfriend); // prints => { name: 'Kyle Lankton', age: 29, hairColor: 'brown' }
+                        // When you alter the newBf object, you alter the original boyfriend 
+                        // object, since the object is copied by reference.
+
+let myNumber = 10;
+function addEight(x){
+ return x += 8;
+};
+
+console.log(addEight(myNumber)); // prints => 18
+console.log(myNumber); // prints => 10
+                       // When you alter the myNumber variable, you can still return the original
+                       // value of myNumber, since the variable is copied by value.
 
