@@ -93,20 +93,42 @@ function add(x, y) {
 console.log(add(4, 7)); // prints => 11
 
 // 7. undefined //
-/*
+/* Undefined is classified as a simple datatype, as well as a 'falsy' value. A variable that has 
+not been assigned a value will be undefined. A variable that has not been declared at all will 
+also have a value of undefined. A function will log as undefined if it is not given a value to return. 
 */
+
+var help;
+console.log(help); // prints => undefined
+
+console.log(please); // prints => undefined
 
 // 8. null //
-/*
+/* Null is also a simple datatype that has a 'falsy' value. It is mostly used when a variable is 
+intentionally not given a value, but could be assigned a value later on. If a function returns
+null, it means that the expected object output could not be created.
 */
+
+var okaySure = null;
+console.log(okaySure); // prints => null
 
 // 9. NaN //
-/*
+/* NaN stands for Not a Number. It is essentially a number type, that is not a legal number. NaN
+can be thrown to the console for a few different reasons, like if you try to perform math on a string.
 */
 
+var garlic = "clove" / 2;
+console.log(garlic); // prints => NaN
+
 // 10. Infinity and -Infinity //
-/*
+/* Infinity and -Infinity are numeric values representing infinity and negative infinity, respectively.
+They are global properties. The value of Infinity is greater than any number, and the value of 
+-Infinity is less than any number.
 */
+
+console.log(Infinity + 1); // prints => Infinity
+console.log(-Infinity * 3); // prints => -Infinity
+console.log(-Infinity * -1); // prints => Infinity
 
 // 11. Simple v. Complex Datatypes //
 /*
