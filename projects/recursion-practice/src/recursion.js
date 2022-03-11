@@ -288,6 +288,13 @@ var fibonacci = function(x) {
 // nthFibo(7); // 13
 // nthFibo(3); // 2
 var nthFibo = function(x) {
+  if (x < 2 && x > 0) {
+    return x;
+  } else if (x < 0) {
+    return null;
+  } else {
+    return nthFibo(x - 1) + nthFibo(x - 2);
+  }
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
