@@ -168,10 +168,8 @@ var multiply = function(x, y) {
   if (x > 0 && y > 0) {
   return x + multiply(x, y - 1);
   }
-  if (x < 0) {
-  return x - multiply(x, y - 1);
   
-  }
+  
   
 };
 
@@ -225,8 +223,8 @@ var reverseArr = function (array, output=[]) {
 
 
 // 18. Create a new array with a given value and length.
-// buildList(0,5) // [0,0,0,0,0]
-// buildList(7,3) // [7,7,7]
+// buildnumbers(0,5) // [0,0,0,0,0]
+// buildnumbers(7,3) // [7,7,7]
 var buildList = function(value, length, output=[]) {
   if (length === 0) {
     return output;
@@ -234,7 +232,7 @@ var buildList = function(value, length, output=[]) {
   return [value].concat(buildList(value, length - 1), output);
 };
 
-// 19. Count the occurence of a value inside a list.
+// 19. Count the occurence of a value inside a numbers.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
 var countOccurrence = function(array, value) {
@@ -356,22 +354,24 @@ var letterTally = function(str, obj={}) {
   return letterTally(str.slice(1), obj);
 };
 
-// 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
+// 31. Eliminate consecutive duplicates in a numbers.  If the numbers contains repeated
 // elements they should be replaced with a single copy of the element. The order of the
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list, output=[]) {
-  if (list.length === 0) {
-    return output;
+var compress = function(numbers) {
+  if (numbers.length === 0) {
+    return [];
   }
- if (list[0]) {
-   
- }
+  var compression = compress(numbers.slice(1));
 
+  if (numbers[0] !== compression[0]) {
+    compression.unshift(numbers[0]);
+  }
+  return compression;
 };
 
-// 32. Augment every element in a list with a new value where each element is an array
+// 32. Augment every element in a numbers with a new value where each element is an array
 // itself.
 // Example: augmentElements([[],[3],[7]], 5); // [[5],[3,5],[7,5]]
 var augmentElements = function(array, aug) {
@@ -380,20 +380,73 @@ var augmentElements = function(array, aug) {
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {
+var minimizeZeroes = function(array, output=[]) {
+  if (array.length === 0) {
+    return output;
+  }
+  if (array[0] !== 0) {
+    output.push(array[0]);
+    return minimizeZeroes(array.slice(1), output);
+  }
+  if (array[0] !== array[1]) {
+    output.push(array[0]);
+    return minimizeZeroes(array.slice(1), output);
+  }
+  return minimizeZeroes(array.slice(1), output);
+
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+var alternateSign = function(array, output=[]) {
+  if (array.length === 0) {
+    return output;
+  }
+  var numbers = alternateSign(array.slice(0, array.length-1));
+ 
+  if (array.length % 2 === 0) {
+    if (array[array.length - 1] > 0) {
+      array[array.length - 1] = -array[array.length - 1];
+    }
+  } else {
+    if (array[array.length - 1] < 0) {
+      array[array.length - 1] = -array[array.length - 1];
+    }
+  }
+  numbers.push(array[array.length - 1]);
+  return numbers;
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
+var numToText = function(str, output="") {
+  if (!str) {
+    return output;
+  }
+  var object = {
+    0: 'zero',
+    1: 'one',
+    2: 'two',
+    3: 'three',
+    4: 'four',
+    5: 'five',
+    6: 'six',
+    7: 'seven',
+    8: 'eight',
+    9: 'nine'
+  };
+
+for (var key in object) {
+  if (str.includes(object[key])) {
+      str.replace()
+  }
+}
+
+
+  
 };
 
 // *** EXTRA CREDIT ***
@@ -480,7 +533,7 @@ if ((typeof process !== 'undefined') &&
   compareStr = createSpyProxy(compareStr);
   createArray = createSpyProxy(createArray);
   reverseArr = createSpyProxy(reverseArr);
-  buildList = createSpyProxy(buildList);
+  buildnumbers = createSpyProxy(buildnumbers);
   countOccurrence = createSpyProxy(countOccurrence);
   rMap = createSpyProxy(rMap);
   countKeysInObj = createSpyProxy(countKeysInObj);
@@ -520,7 +573,7 @@ if ((typeof process !== 'undefined') &&
     compareStr,
     createArray,
     reverseArr,
-    buildList,
+    buildnumbers,
     countOccurrence,
     rMap,
     countKeysInObj,
