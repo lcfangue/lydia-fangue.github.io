@@ -75,8 +75,16 @@ console.log(equalTo == eight); // == doesn't consider datatype, so it prints => 
 console.log(equalTo === eight); // === considers datatype, so it prints => false
 
 var x = 4;
-var y = 'yes';
+var y = 7;
 console.log(x != y); // != can be read as "does not equal", so it prints => true
+
+console.log(x < y); // prints => true
+
+console.log(x > y); // prints => false
+
+console.log(x <= y); // prints => true
+
+console.log(x >= y); // prints => false
 
 
 
