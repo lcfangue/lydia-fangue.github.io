@@ -86,11 +86,9 @@ console.log(x <= y); // prints => true
 
 console.log(x >= y); // prints => false
 
-
-
 // 4. Logical Operators //
-/* Logical operators are used to chain different conditions together. The three
-logical operators, && (and), || (or), and ! (not) are demonstrated below. 
+/* Logical operators are used to chain different conditions together. Two
+logical operators, the And Operator (&&) and the Or Operator (||) are demonstrated below. 
 */
 
 var a = 6;
@@ -98,13 +96,30 @@ var b = 2;
 
 console.log((a > b) && (a != b)); // a is greater than b, and a is not equal to b, so it prints => true
 console.log((a < b) || (a === b)); // a is not less than b, nor is it equal to b, so it prints => false
-console.log(!(a === b)); // a is not equal to b, so it prints => false
-
 
 // 5. Unary Operators //
-/*
+/* Unary operators can only be used to modify one operand. The negative operator, the typeof
+operator, and the bang operator are all demonstrated below.
 */
 
+var x = -45;
+console.log(x); // the negative operator makes the numerical value negative, so it prints => -45
+
+var imHungry = "for a sandwich";
+console.log(typeof imHungry); // typeof returns the datatype of the given variable, so it prints => string
+
+var sandwichCount = 16;
+console.log(typeof sandwichCount); // prints => number
+
+var starving = true;
+console.log(!starving); // the bang operator reverses a given boolean value, so it prints => false
+
+
 // 6. Ternary Operator //
-/*
+/* The ternary operator is used as a shorter version of an if else statement. The syntax is:
+(conditional expression) ? (if true, execute this command) : (if false, execute this command)
 */
+
+var myFood = 'pasta';
+typeof myFood === 'string' ? console.log("pasta queen") : console.log("where is the pasta")
+// prints => pasta queen
