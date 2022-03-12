@@ -89,8 +89,17 @@ console.log(x >= y); // prints => false
 
 
 // 4. Logical Operators //
-/*
+/* Logical operators are used to chain different conditions together. The three
+logical operators, && (and), || (or), and ! (not) are demonstrated below. 
 */
+
+var a = 6;
+var b = 2;
+
+console.log((a > b) && (a != b)); // a is greater than b, and a is not equal to b, so it prints => true
+console.log((a < b) || (a === b)); // a is not less than b, nor is it equal to b, so it prints => false
+console.log(!(a === b)); // a is not equal to b, so it prints => false
+
 
 // 5. Unary Operators //
 /*
