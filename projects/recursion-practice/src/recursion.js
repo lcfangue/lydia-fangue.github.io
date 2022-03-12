@@ -438,13 +438,11 @@ var numToText = function(str, output="") {
     8: 'eight',
     9: 'nine'
   };
-
-for (var key in object) {
-  if (str.includes(object[key])) {
-      str.replace()
+  numToText(str.substring(0, str.length - 1), output)
+    if (str.includes(object[key]))
   }
-}
-
+ 
+  
 
   
 };
