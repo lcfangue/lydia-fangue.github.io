@@ -36,5 +36,31 @@ remainderOperator %= 3; // because 32/3=10, remainder 2 >> prints => 2
 console.log(remainderOperator);
 
 // 2. Arithmetic Operators //
-/* Arithmetic Operators 
+/* Arithmetic operators are used to perform mathematical operations on operands. The
+seven arithmetic operators are demonstrated below.
 */
+
+var plus = 4 + 3;
+console.log(plus); // prints => 7
+
+var minus = 10 - 3;
+console.log(minus); // prints => 7
+
+var multiply = 4 * 3;
+console.log(mulitply); // prints => 12
+
+var divide = 55 / 5;
+console.log(divide); // prints => 11
+
+var modulus = 19 % 2;
+console.log(modulus); // prints => 1
+
+var increment = 6;
+increment++;
+console.log(increment); // prints 7
+
+var decrement = 14;
+decrement--;
+console.log(decrement); // prints 13
+
+//
